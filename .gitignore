@@ -22,18 +22,14 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-.idea/$PROJECT_FILE$
-.idea/.gitignore
-.idea/compiler.xml
-.idea/encodings.xml
-.idea/inspectionProfiles/
-.idea/jarRepositories.xml
-.idea/libraries/
-.idea/misc.xml
-.idea/modules.xml
-.idea/qaplug_profiles.xml
-.idea/sonarlint/
-.idea/thread.iml
-.idea/vcs.xml
+
+thread01/.gitignore
+thread01/.mvn/
+thread01/mvnw
+thread01/mvnw.cmd
+thread01/pom.xml
+thread01/src/main/java/
+thread01/src/main/resources/application.properties
+thread01/src/test/
 thread01/src/main/resources/static/
 thread01/src/main/resources/templates/

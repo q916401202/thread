@@ -1,0 +1,13 @@
+package com.qing.thread02;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Thread02Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Thread02Application.class, args);
+	}
+
+}

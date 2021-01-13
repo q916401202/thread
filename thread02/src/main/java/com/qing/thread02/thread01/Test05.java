@@ -26,18 +26,18 @@ public class Test05 {
 
     }
 
-    public void mm(){
-        synchronized (this){
-        for (int i=1;i<=100;i++){
-            System.out.println(Thread.currentThread().getName()+"------->"+i);
-        }
+    public void mm() {
+        synchronized (this) {
+            for (int i = 1; i <= 100; i++) {
+                System.out.println(Thread.currentThread().getName() + "------->" + i);
+            }
         }
     }
 
     //默认this作为锁对象
-    public synchronized void mm2(){
-        for (int i=1;i<=100;i++){
-            System.out.println(Thread.currentThread().getName()+"------->"+i);
+    public synchronized void mm2() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println(Thread.currentThread().getName() + "------->" + i);
         }
     }
 

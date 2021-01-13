@@ -30,6 +30,9 @@ public class Test09 {
         synchronized (Test09.class) {
             for (int i = 1; i <= 100; i++) {
                 System.out.println(Thread.currentThread().getName() + "------->" + i);
+                if (i==50){
+                    System.out.println(1/0);
+                }
             }
         }
     }

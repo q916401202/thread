@@ -36,11 +36,11 @@ public class Test02 {
         public void printStringMethod() {
             System.out.println("开始执行");
             while (continuePrint) {
-//                try {
-//                    Thread.sleep(500);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
             System.out.println("结束执行");
         }

@@ -1,47 +1,26 @@
 package com.qing.thread02.wait;
 
+/**
+ * @author qing
+ * @version 1.0
+ * @date 2021/2/19 下午 12:07
+ */
 public class Test02 {
-    public static void main(String[] args) throws InterruptedException {
-        Object o = new Object();
-        SubThread t1 = new SubThread(o);
-        SubThread t2 = new SubThread(o);
-        SubThread t3 = new SubThread(o);
-        t1.setName("t1");
-        t2.setName("t2");
-        t3.setName("t3");
-        t1.start();
-        t2.start();
-        t3.start();
-
-        Thread.sleep(2000);
-
-        synchronized (o) {
-            //随机唤醒一个线程
-//            o.notify();
-            //唤醒全部得线程
-            o.notifyAll();
-        }
-    }
-
-    static class SubThread extends Thread {
-        private Object lock;
-
-        public SubThread(Object lock) {
-            this.lock = lock;
-        }
-
-        @Override
-        public void run() {
-            synchronized (lock) {
-                try {
-                    System.out.println(Thread.currentThread().getName() + "....begin  wait....");
-                    lock.wait();
-                    System.out.println(Thread.currentThread().getName() + "----end wait...");
-                } catch (Exception e) {
-                    System.out.println();
-                    e.printStackTrace();
-                }
+    public static void main(String[] args) {
+        try {
+            String text="wkcto";
+            String another="hello";
+            System.out.println("同步前的代码");
+            synchronized (text){
+                System.out.println("同步代码块开始。。。。");
+                //调用wait当前线程处于等待，释放锁，需要唤醒，不唤醒会一直等待下去
+                text.wait();
+                System.out.println("wait后面的代码");
             }
+            System.out.println("同步代码块后面的代码");
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        System.out.println("main后面的代码");
     }
 }

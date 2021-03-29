@@ -1,39 +1,28 @@
 package com.qing.thread02.wait;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author qing
+ * @version 1.0
+ * @date 2021/2/19 下午 12:23
+ */
 public class Test04 {
     public static void main(String[] args) {
-        Object lock = new Object();
-        Thread thread = new Thread(new Runnable() {
+        List<String> list = new ArrayList<>();
+
+        Runnable target;
+        Thread t1=new Thread(new Runnable() {
             @Override
             public void run() {
-                synchronized (lock) {
-                    try {
-                        System.out.println("begin wait...");
-                        lock.wait();
-                        System.out.println("wait end...");
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                synchronized (list){
+                    if (list.size()!=5){
+                        System.out.println("c ");
                     }
                 }
             }
         });
 
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-//                try {
-                synchronized (lock) {
-                    System.out.println("begin notify");
-                    lock.notify();
-                    System.out.println("end nofity");
-                }
-
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-            }
-        });
-        thread.start();
-        thread1.start();
     }
 }
